@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{E59E4090-7A78-4D3B-9EA9-F0F076DCCEEA}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>TowerDefence</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(ProjectDir)\openssl\win32\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)\openssl\win32\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(ProjectDir)\openssl\win32\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)\openssl\win32\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>libeay32.lib;ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>libeay32.lib;ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\aes_encryption.cpp" />
+    <ClCompile Include="src\Configuration.cpp" />
+    <ClCompile Include="src\Effect\Explosion.cpp" />
+    <ClCompile Include="src\Effect\Shot.cpp" />
+    <ClCompile Include="src\Game\CharaStatusReader.cpp" />
+    <ClCompile Include="src\Game\EnemyStatusReader.cpp" />
+    <ClCompile Include="src\Charactor\Enemy\EnemyBase.cpp" />
+    <ClCompile Include="src\Charactor\Enemy\Ocj.cpp" />
+    <ClCompile Include="src\Charactor\Friend\FriendBase.cpp" />
+    <ClCompile Include="src\Charactor\Friend\Majokko.cpp" />
+    <ClCompile Include="src\Charactor\Friend\Miko.cpp" />
+    <ClCompile Include="src\Charactor\Friend\Plane.cpp" />
+    <ClCompile Include="src\Charactor\Friend\Yojo.cpp" />
+    <ClCompile Include="src\Game\Point.cpp" />
+    <ClCompile Include="src\Game\StageMap.cpp" />
+    <ClCompile Include="src\Game\State.cpp" />
+    <ClCompile Include="src\halt.cpp" />
+    <ClCompile Include="src\Loader.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Score.cpp" />
+    <ClCompile Include="src\Sequence\CharaBuild.cpp" />
+    <ClCompile Include="src\Sequence\Child.cpp" />
+    <ClCompile Include="src\Sequence\CommonFunc.cpp" />
+    <ClCompile Include="src\Sequence\GameSequence\Child.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)GChild</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)GChild</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\Sequence\GameSequence\GameOver.cpp" />
+    <ClCompile Include="src\Sequence\GameSequence\InitPlace.cpp" />
+    <ClCompile Include="src\Sequence\GameSequence\Parent.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)GParent</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)GParent</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="src\Sequence\GameSequence\Pause.cpp" />
+    <ClCompile Include="src\Sequence\GameSequence\Play.cpp" />
+    <ClCompile Include="src\Sequence\GameSequence\Ready.cpp" />
+    <ClCompile Include="src\Sequence\Logo.cpp" />
+    <ClCompile Include="src\Sequence\Option.cpp" />
+    <ClCompile Include="src\Sequence\Parent.cpp" />
+    <ClCompile Include="src\Sequence\StageSelect.cpp" />
+    <ClCompile Include="src\Sequence\Title.cpp" />
+    <ClCompile Include="src\StageConfig.cpp" />
+    <ClCompile Include="src\utils.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\aes_encryption.h" />
+    <ClInclude Include="src\Array2D.h" />
+    <ClInclude Include="src\CommonConst.h" />
+    <ClInclude Include="src\CommonString.h" />
+    <ClInclude Include="src\Configuration.h" />
+    <ClInclude Include="src\define.h" />
+    <ClInclude Include="src\Effect\EffectBase.h" />
+    <ClInclude Include="src\Effect\Explosion.h" />
+    <ClInclude Include="src\Effect\Shot.h" />
+    <ClInclude Include="src\FileNames.h" />
+    <ClInclude Include="src\Charactor\CharactorBase.h" />
+    <ClInclude Include="src\Game\CharaStatusReader.h" />
+    <ClInclude Include="src\Game\EnemyStatusReader.h" />
+    <ClInclude Include="src\Charactor\Enemy\EnemyBase.h" />
+    <ClInclude Include="src\Charactor\Enemy\Ocj.h" />
+    <ClInclude Include="src\Charactor\Friend\FriendBase.h" />
+    <ClInclude Include="src\Charactor\Friend\Majokko.h" />
+    <ClInclude Include="src\Charactor\Friend\Miko.h" />
+    <ClInclude Include="src\Charactor\Friend\Plane.h" />
+    <ClInclude Include="src\Charactor\Friend\Yojo.h" />
+    <ClInclude Include="src\Game\Point.h" />
+    <ClInclude Include="src\Game\StageMap.h" />
+    <ClInclude Include="src\Game\State.h" />
+    <ClInclude Include="src\Loader.h" />
+    <ClInclude Include="src\Score.h" />
+    <ClInclude Include="src\Sequence\Base.h" />
+    <ClInclude Include="src\Sequence\CharaBuild.h" />
+    <ClInclude Include="src\Sequence\Child.h" />
+    <ClInclude Include="src\Sequence\CommonFunc.h" />
+    <ClInclude Include="src\Sequence\GameSequence\Child.h" />
+    <ClInclude Include="src\Sequence\GameSequence\GameOver.h" />
+    <ClInclude Include="src\Sequence\GameSequence\InitPlace.h" />
+    <ClInclude Include="src\Sequence\GameSequence\Parent.h" />
+    <ClInclude Include="src\Sequence\GameSequence\Pause.h" />
+    <ClInclude Include="src\Sequence\GameSequence\Play.h" />
+    <ClInclude Include="src\Sequence\GameSequence\Ready.h" />
+    <ClInclude Include="src\Sequence\Logo.h" />
+    <ClInclude Include="src\Sequence\Option.h" />
+    <ClInclude Include="src\Sequence\Parent.h" />
+    <ClInclude Include="src\Sequence\StageSelect.h" />
+    <ClInclude Include="src\Sequence\Title.h" />
+    <ClInclude Include="src\StageConfig.h" />
+    <ClInclude Include="src\utils.h" />
+    <ClInclude Include="src\XMLNodeNameString.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\boost.1.72.0.0\build\boost.targets" Condition="Exists('..\packages\boost.1.72.0.0\build\boost.targets')" />
+    <Import Project="..\packages\DxLib.vc140.3.2.2.1\build\native\DxLib.vc140.targets" Condition="Exists('..\packages\DxLib.vc140.3.2.2.1\build\native\DxLib.vc140.targets')" />
+  </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>このプロジェクトは、このコンピューター上にない NuGet パッケージを参照しています。それらのパッケージをダウンロードするには、[NuGet パッケージの復元] を使用します。詳細については、http://go.microsoft.com/fwlink/?LinkID=322105 を参照してください。見つからないファイルは {0} です。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\boost.1.72.0.0\build\boost.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\boost.1.72.0.0\build\boost.targets'))" />
+    <Error Condition="!Exists('..\packages\DxLib.vc140.3.2.2.1\build\native\DxLib.vc140.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\DxLib.vc140.3.2.2.1\build\native\DxLib.vc140.targets'))" />
+  </Target>
+</Project>
